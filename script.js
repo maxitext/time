@@ -78,7 +78,39 @@ document.addEventListener('DOMContentLoaded', function() {
             closeCertificateModal();
         }
     });
+
+    // Parse URL parameters and auto-populate form
+    parseURLParameters();
 });
+
+// Parse URL Parameters and Auto-populate Form
+function parseURLParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const certificateNumber = urlParams.get('certificateNumber');
+    const certificateType = urlParams.get('certificateType');
+
+    if (certificateNumber) {
+        const certificateNumberInput = document.getElementById('certificateNumber');
+        if (certificateNumberInput) {
+            certificateNumberInput.value = certificateNumber;
+        }
+    }
+
+    if (certificateType) {
+        const certificateTypeSelect = document.getElementById('certificateType');
+        if (certificateTypeSelect) {
+            certificateTypeSelect.value = certificateType;
+        }
+    }
+
+    // If both parameters are present, automatically validate
+    if (certificateNumber && certificateType) {
+        // Small delay to ensure form is ready
+        setTimeout(() => {
+            handleCertificateValidation();
+        }, 100);
+    }
+}
 
 // Certificate Validation Handler
 function handleCertificateValidation() {
@@ -90,10 +122,9 @@ function handleCertificateValidation() {
         return;
     }
 
-    // Check if the certificate number matches the specific one
-    if (certificateNumber === 'NCEC/EC-C-5/8942') {
-        // Show certificate details in modal
-        showCertificateDetails({
+    // Certificate database - in a real app, this would come from an API
+    const certificateDatabase = {
+        'NCEC/EC-C-5/8942': {
             company: 'KING & SELE GLOBAL SERVICE LIMITED',
             certificateNumber: 'NCEC/EC-C-5/8942',
             type: 'TYPE 5 (CONTRACTS BELOW $10M)',
@@ -101,7 +132,22 @@ function handleCertificateValidation() {
             usage: 'CIVIL AND MECHANICAL CONSTRUCTION, HAULAGE',
             issuedDate: '30/08/25',
             expiryDate: '29/08/26'
-        });
+        },
+        'NCEC/EC-C-5/8345': {
+            company: '2ES Global Resources Nigeria Limited',
+            certificateNumber: 'NCEC/EC-C-5/8345',
+            type: 'TYPE 5 (CONTRACTS BELOW $10M)',
+            equipment: 'MOBILE CRANE, OVERHEAD CRANE, FORKLIFT, EXCAVATOR, SWAMPBUGGY, COMPRESSOR, TORQUE WRENCH, TRUCKS',
+            usage: 'CIVIL AND MECHANICAL CONSTRUCTION, HAULAGE',
+            issuedDate: '30/08/25',
+            expiryDate: '29/08/26'
+        }
+    };
+
+    // Check if the certificate number exists in the database
+    if (certificateDatabase[certificateNumber]) {
+        // Show certificate details in modal
+        showCertificateDetails(certificateDatabase[certificateNumber]);
     } else {
         // For other certificate numbers, you would make an API call
         console.log('Validating certificate:', {
