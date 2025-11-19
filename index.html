@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extranet Search - NOGICJQS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="image.png" alt="NOGICJQS Logo" class="logo-img">
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Guidelines <span class="arrow">▼</span></a>
+                    </li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Whistle Blower</a></li>
+                    <li class="dropdown">
+                        <a href="#">NCDMB <span class="arrow">▼</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="login-btn">Login</button>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Extranet Search</h1>
+            <div class="banner-decoration"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="certificate-verification">
+                    Certificate Verification
+                </button>
+                <button class="tab-btn" data-tab="individual-competency">
+                    Individual Competency Search
+                </button>
+                <button class="tab-btn" data-tab="companies-competency">
+                    Companies Competency Search
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Certificate Verification Tab -->
+                <div id="certificate-verification" class="tab-panel active">
+                    <p class="instruction-text">
+                        Use the fields below to search for validation or you can scan the barcode on the certificate.
+                    </p>
+                    <form class="certificate-form" id="certificateForm">
+                        <div class="form-group">
+                            <label for="certificateType">Certificate Type *</label>
+                            <select id="certificateType" name="certificateType" required>
+                                <option value="">-- select --</option>
+                                <option value="individual">Individual Certificate</option>
+                                <option value="ncec" selected>NCEC Certificate</option>
+                                <option value="company">Company Certificate</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="certificateNumber">Certificate Number *</label>
+                            <input 
+                                type="text" 
+                                id="certificateNumber" 
+                                name="certificateNumber" 
+                                placeholder="Enter certificate number"
+                                required
+                            />
+                        </div>
+                        <button type="submit" class="validate-btn">Validate Certificate</button>
+                    </form>
+                </div>
+
+                <!-- Individual Competency Search Tab -->
+                <div id="individual-competency" class="tab-panel">
+                    <p class="instruction-text">
+                        Search for individual competency information.
+                    </p>
+                    <form class="search-form" id="individualForm">
+                        <div class="form-group">
+                            <label for="individualName">Name</label>
+                            <input 
+                                type="text" 
+                                id="individualName" 
+                                name="individualName" 
+                                placeholder="Enter name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="individualId">ID Number</label>
+                            <input 
+                                type="text" 
+                                id="individualId" 
+                                name="individualId" 
+                                placeholder="Enter ID number"
+                            />
+                        </div>
+                        <button type="submit" class="validate-btn">Search</button>
+                    </form>
+                </div>
+
+                <!-- Companies Competency Search Tab -->
+                <div id="companies-competency" class="tab-panel">
+                    <p class="instruction-text">
+                        Search for company competency information.
+                    </p>
+                    <form class="search-form" id="companyForm">
+                        <div class="form-group">
+                            <label for="companyName">Company Name</label>
+                            <input 
+                                type="text" 
+                                id="companyName" 
+                                name="companyName" 
+                                placeholder="Enter company name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="companyReg">Registration Number</label>
+                            <input 
+                                type="text" 
+                                id="companyReg" 
+                                name="companyReg" 
+                                placeholder="Enter registration number"
+                            />
+                        </div>
+                        <button type="submit" class="validate-btn">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <div class="logo">
+                    <img src="image copy.png" alt="NOGICJQS Logo" class="logo-img footer-logo-img">
+                </div>
+            </div>
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>07000062362</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <span>support@nogicjqs.com</span>
+                </div>
+            </div>
+            <div class="footer-social">
+                <span>Follow Us:</span>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Certificate Details Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>NCEC Certificate Details</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-item">
+                    <strong>Company:</strong>
+                    <span id="detailCompany">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Certificate Number:</strong>
+                    <span id="detailCertificateNumber">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Type:</strong>
+                    <span id="detailType">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>List Of Equipment Owned:</strong>
+                    <span id="detailEquipment">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Typical Usage of the Equipment in the Oil & Gas industry:</strong>
+                    <span id="detailUsage">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Issued Date:</strong>
+                    <span id="detailIssuedDate">-</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Expiry Date:</strong>
+                    <span id="detailExpiryDate">-</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" id="cancelModal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
