@@ -119,7 +119,7 @@
                         type="text" 
                         id="qrCertificateNumber" 
                         name="certificateNumber" 
-                        placeholder="e.g., NCEC/EC-C-5/8942"
+                        placeholder="e.g., NCEC/SS-C-5/8942"
                         required
                     />
                 </div>
@@ -175,9 +175,31 @@
                 return;
             }
             
-            // Get the current domain or use a placeholder
-            const baseURL = window.location.origin + window.location.pathname.replace('qr-generator.html', '');
+            // Get the current domain and construct the correct URL
+            const origin = window.location.origin;
+            const pathname = window.location.pathname;
+            
+            // Remove the current filename (qr-generator.html) and get the directory path
+            let basePath = pathname;
+            if (basePath.includes('qr-generator.html')) {
+                basePath = basePath.replace(/qr-generator\.html$/, '');
+            } else if (basePath.endsWith('/')) {
+                // Already a directory path
+            } else {
+                // Get directory path by removing the last filename
+                basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+            }
+            
+            // Ensure basePath ends with a slash
+            if (!basePath.endsWith('/') && basePath !== '/') {
+                basePath += '/';
+            }
+            
+            const baseURL = origin + basePath;
             const verificationURL = `${baseURL}index.html?certificateNumber=${encodeURIComponent(certificateNumber)}&certificateType=${encodeURIComponent(certificateType)}`;
+            
+            // Debug: log the URL to console
+            console.log('Generated URL:', verificationURL);
             
             // Clear previous QR code
             document.getElementById('qrcode').innerHTML = '';
