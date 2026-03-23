@@ -91,11 +91,11 @@ function handleCertificateValidation() {
     }
 
     // Check if the certificate number matches the specific one
-    if (certificateNumber === 'NCEC/EC-C-5/8942') {
+    if (certificateNumber === 'NCEC/PS-C-5/9164') {
         // Show certificate details in modal
         showCertificateDetails({
             company: 'KING & SELE GLOBAL SERVICE LIMITED',
-            certificateNumber: 'NCEC/EC-C-5/8942',
+            certificateNumber: 'NCEC/PS-C-5/9164',
             type: 'TYPE 5 (CONTRACTS BELOW $10M)',
             equipment: 'MOBILE CRANE, OVERHEAD CRANE, FORKLIFT, EXCAVATOR, SWAMPBUGGY, COMPRESSOR, TORQUE WRENCH, TRUCKS',
             usage: 'CIVIL AND MECHANICAL CONSTRUCTION, HAULAGE',
