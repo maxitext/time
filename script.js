@@ -124,9 +124,9 @@ function handleCertificateValidation() {
 
     // Certificate database - in a real app, this would come from an API
     const certificateDatabase = {
-        'NCEC/SS-C-5/8942': {
+        'NCEC/PS-C-5/9164': {
             company: 'KING & SELE GLOBAL SERVICE LIMITED',
-            certificateNumber: 'NCEC/SS-C-5/8942',
+            certificateNumber: 'NCEC/PS-C-5/9164',
             type: 'TYPE 5 (CONTRACTS BELOW $10M)',
             equipment: 'MOBILE CRANE, OVERHEAD CRANE, FORKLIFT, EXCAVATOR, SWAMPBUGGY, COMPRESSOR, TORQUE WRENCH, TRUCKS',
             usage: 'CIVIL AND MECHANICAL CONSTRUCTION, HAULAGE',
