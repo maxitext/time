@@ -124,14 +124,14 @@ function handleCertificateValidation() {
 
     // Certificate database - in a real app, this would come from an API
     const certificateDatabase = {
-        'NCEC/PS-C-5/9164': {
+        'NCEC/PS-C-5/9846': {
             company: 'KING & SELE GLOBAL SERVICE LIMITED',
-            certificateNumber: 'NCEC/PS-C-5/9164',
+            certificateNumber: 'NCEC/PS-C-5/9846',
             type: 'TYPE 5 (CONTRACTS BELOW $10M)',
             equipment: 'MOBILE CRANE, OVERHEAD CRANE, FORKLIFT, EXCAVATOR, SWAMPBUGGY, COMPRESSOR, TORQUE WRENCH, TRUCKS',
             usage: 'CIVIL AND MECHANICAL CONSTRUCTION, HAULAGE',
-            issuedDate: '30/08/25',
-            expiryDate: '29/08/26'
+            issuedDate: '08/10/26',
+            expiryDate: '07/10/27'
         },
         'NCEC/PS-C-5/9632': {
             company: '2ES Global Resources Nigeria Limited',
@@ -150,11 +150,6 @@ function handleCertificateValidation() {
         showCertificateDetails(certificateDatabase[certificateNumber]);
     } else {
         // For other certificate numbers, you would make an API call
-        console.log('Validating certificate:', {
-            type: certificateType,
-            number: certificateNumber
-        });
-        
         // In a real application, you would use fetch() or axios to call your backend API
         // For now, show a message
         alert(`Certificate validation request:\nType: ${certificateType}\nNumber: ${certificateNumber}\n\nThis would connect to the backend API in a real implementation.`);
@@ -232,4 +227,3 @@ function initBarcodeScanner() {
     // This is a placeholder for future implementation
     console.log('Barcode scanner would be initialized here');
 }
-
