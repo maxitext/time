@@ -130,8 +130,8 @@ function handleCertificateValidation() {
             type: 'TYPE 5 (CONTRACTS BELOW $10M)',
             equipment: 'MOBILE CRANE, OVERHEAD CRANE, FORKLIFT, EXCAVATOR, SWAMPBUGGY, COMPRESSOR, TORQUE WRENCH, TRUCKS',
             usage: 'CIVIL AND MECHANICAL CONSTRUCTION, HAULAGE',
-            issuedDate: '08/10/26',
-            expiryDate: '07/10/27'
+            issuedDate: '08/09/26',
+            expiryDate: '07/09/27'
         },
         'NCEC/PS-C-5/9632': {
             company: '2ES Global Resources Nigeria Limited',
